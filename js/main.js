@@ -104,3 +104,37 @@ const actualizarCarrito = () => {
 
 
 }
+
+const formulario = document.querySelector('#formulario');
+const  boton = document.querySelector('#boton');
+const resultado = document.querySelector('#resultado');
+
+const filtrar = ()=>{
+    
+    resultado.innerHTML = '';
+    const texto = formulario.value.toLowerCase();
+    for(let producto of stockProductos){
+        let nombre = producto.nombre.toLowerCase();
+    if(nombre.indexOf(texto) !== -1){
+        resultado.innerHTML += `<div class="producto">
+        <img src=${producto.img} alt= "">
+        <h3>${producto.nombre}</h3>
+        <p>${producto.desc}</p>
+        <p>Talle: ${producto.talle}</p>
+        <p class="precioProducto">Precio:$ ${producto.precio}</p>
+        <button id="agregar${producto.id}" class="boton-agregar">Agregar <i class="fas fa-shopping-cart"></i></button>
+        </div>
+        `
+    }
+    }
+    if(resultado.innerHTML === ''){
+        resultado.innerHTML += `<div><h2>Producto no encontrado... </h2></div>
+        `
+    }
+  
+}
+
+boton.addEventListener('click', filtrar);
+formulario.addEventListener('keyup', filtrar);
+
+filtrar();

@@ -26,6 +26,10 @@ h1 {
     font-weight: 700;
     font-size: 50px;
     background-color: black;
+    line-height: 1.5;
+}
+h2 h3{
+    line-height: 1.5;
 }
 #boton-carrito {
     border: none;
@@ -165,5 +169,23 @@ p {
 }
 
 .logo{
-    width: 10%;
+    width: 40%;
+}
+
+.row{
+    justify-content: space-evenly;
+    --bs-gutter-x: 0rem;
+}
+
+.buscador{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+footer{
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    
 }
