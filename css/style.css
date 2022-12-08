@@ -189,3 +189,17 @@ footer{
     padding: 1rem;
     
 }
+
+.img-footer{
+    width: 10rem;
+}
+
+.img-footer-ig{
+    width: 4rem;
+}
+
+.footer-tres{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
