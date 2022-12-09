@@ -1,27 +1,42 @@
-let stockProductos = [
-    {id: 1, nombre: "Remera Hollister blanca", tipo: "remera", cantidad: 1, desc: "Remera Hollister Blanca, perfecta para el verano", precio: 1500, talle: "L", img: './img/remerablanca.webp'},
-    {id: 2, nombre: "Buzo Hollister azul", tipo: "buzo", cantidad: 1, desc: "Buzo Hollister con detalles rojos", precio: 3000, talle: "L", img: './img/buzoazul.webp'},
-    {id: 3, nombre: "Remera Hollister con diseño", tipo: "remera", cantidad: 1, desc: "Remera Hollister con diseño de ciudad", precio: 1200, talle: "M", img: './img/KIC_323-2525-3155-908_prod1.webp'},
-    {id: 4, nombre: "Buzo Hollister sin capucha", tipo: "buzo", cantidad: 1, desc: "Buzo Hollister sin capucha y diseño nublado", precio: 3000, talle: "M", img: './img/buzocheto.webp'},
-    {id: 5, nombre: "Campera Hollister degradada", tipo: "buzo", cantidad: 1, desc: "Camepera Hollister abrigada", precio: 3400, talle: "S", img: './img/KIC_332-2417-1669-150_prod1.webp'},
-    {id: 6, nombre: "Remera Hollister vintage", tipo: "remera", cantidad: 1, desc: "Remera Hollister con diseño antiguo", precio: 1600, talle: "S", img: './img/remeravintage.webp'},
-    {id: 7, nombre: "Remera Hollister gris", tipo: "remera", cantidad: 1, desc: "Una remera que re va con vos", precio: 900, talle: "L", img: './img/remeragris.webp'},
-    {id: 8, nombre: "Campera Hollister con capucha", tipo: "buzo", cantidad: 1, desc: "Campera de leñador Hollister", precio: 4000, talle: "L", img: './img/buzolenia.webp'},
-    {id: 9, nombre: "Camisa Hollister colorida", tipo: "remera", cantidad: 1, desc: "Camisa Hollister con diseño conservador", precio: 2000, talle: "M", img: './img/camisaazul.webp'},
-    {id: 10, nombre: "Remera Hollister de mujer", tipo: "remera", cantidad: 1, desc: "Remera Hollister de mujer", precio: 700, talle: "M", img: './img/KIC_346-2355-0009-504_model5.webp'},
-    {id: 11, nombre: "Remera Hollister clara", tipo: "remera", cantidad: 1,desc: "Una remera con diseño normal", precio: 700, talle: "S", img: './img/KIC_357-2900-0899-300_prod1.webp'},
-    {id: 12, nombre: "Remera Hollister roja", tipo: "remera", cantidad: 1, desc: "Una remera pronta para usar", precio: 800, talle: "S", img: './img/KIC_357-2901-0900-500_prod1.webp'},
-    {id: 13, nombre: "Buzo Hollister vintage", tipo: "buzo", cantidad: 1, desc: "Tipico buzo navideño", precio: 3900, talle: "L", img: './img/KIC_320-2703-1158-904_prod1.webp'},
-    {id: 14, nombre: "Buzo Hollister a la moda", tipo: "buzo", cantidad: 1, desc: "Buzo que marca tendencia", precio: 3400, talle: "S", img: './img/KIC_322-2779-1570-505_model1.webp'},
-    {id: 15, nombre: "Campera Hollister azul", tipo: "campera", cantidad: 1, desc: "Campera azul con capucha", precio: 1900, talle: "L", img: './img/KIC_322-2744-0808-200_prod1.webp'},
-    {id: 16, nombre: "Buzo Hollister rojo", tipo: "buzo", cantidad: 1, desc: "Buzo rojo con detalles en blanco", precio: 1777, talle: "S", img: './img/KIC_322-2791-1585-520_prod1.webp'},
-    {id: 17, nombre: "Campera Hollister abrigada", tipo: "campera", cantidad: 1, desc: "Campera perfecta para el invierno", precio: 2234, talle: "S", img: './img/KIC_332-2048-1514-900_prod1.webp'},
-    {id: 18, nombre: "Pantalon Hollister", tipo: "pantalon", cantidad: 1, desc: "Pantalon perfecto para dormir", precio: 1000, talle: "M", img: './img/KIC_313-2030-0007-208_prod1.webp'},
-    {id: 19, nombre: "Short Hollister playero", tipo: "short", cantidad: 1, desc: "La playa te esta esperando", precio: 1600, talle: "L", img: './img/KIC_328-2476-0249-909_prod1.webp'},
-    {id: 20, nombre: "Buzo Hollister de Basket", tipo: "buzo", cantidad: 1, desc: "Buzo bien de NBA", precio: 3200, talle: "L", img: './img/KIC_322-2770-1589-418_prod1.webp'},
-    {id: 21, nombre: "Pantalon Hollister de Basket", tipo: "pantalon", cantidad: 1, desc: "Te gusta el basket dijiste?", precio: 2300, talle: "M", img: './img/KIC_334-2701-0834-900_prod1.webp'},
-    {id: 22, nombre: "Remera Hollister negra", tipo: "remera", cantidad: 1, desc: "Remera simple pero aburrida", precio: 600, talle: "M", img: './img/KIC_324-2300-1117-900_prod1.webp'},
-    {id: 23, nombre: "Remera Hollister gris", tipo: "remera", cantidad: 1, desc: "Remera gris con letras celestes ", precio: 1700, talle: "S", img: './img/KIC_323-2094-3043-100_model1.webp'},
-    {id: 24, nombre: "Campera Hollister abrigada", tipo: "campera", cantidad: 1, desc: "Campera perfecta para el invierno", precio: 3800, talle: "S", img: './img/KIC_332-2542-0569-901_prod1.webp'},
-]
+//LOS PRODUCTOS SE VAN AGREGANDO.
+const fragment = document.createDocumentFragment(); //CREAN ESPACIO DONDE IRA LA CARD
+const templateCard = document.getElementById('template-card').content; //LA CARD
+const items = document.getElementById('listar-productos')
+//MI ARRAY DE OBJETOS (PRODUCTOS EN VENTA)
+class Producto {
 
+    constructor(item){
+        this.id = item.id;
+        this.titulo = item.titulo
+        this.imagen = item.imagen
+        this.precio = item.precio
+        this.descripcion= item.descripcion
+    }
+
+};
+
+const agregarProductos = [
+    new Producto ({id: "1", titulo: "Ryzen 3 3200 16ram", imagen: "img/producto1.jpg" ,precio: 1599, descripcion: "¡La mejor experiencia para jugar juegos actuales! Además, trae 5 Juegos Instalados: FORTNITE, CSGO, NFS PAYBACK, LOL y MINECRAFT. (Los juegos NO son intercambiables, puede cambiarlos cada cliente a su gusto) "}),
+    new Producto ({id: "2", titulo: "Teclado Gamer", imagen: "img/producto2.jpg" ,precio: 200, descripcion: "Este teclado HP de alto rendimiento permite que puedas disfrutar de horas ilimitadas de juegos. Está diseñado especialmente para que puedas expresar tanto tus habilidades como tu estilo. Podrás mejorar tu experiencia de gaming, ya seas un aficionado o todo un experto, y hacer que tus jugadas alcancen otro nivel."}),
+    new Producto({ id: "3", titulo: "Combo Auriculares + Mouse Gaming", imagen: "img/producto3.jpg", precio: 190, descripcion: "¡Experimentá la adrenalina de sumergirte en la escena de otra manera! Tener auriculares específicos para jugar cambia completamente tu experiencia en cada partida. Con los HyperX Stinger Core no te perdés ningún detalle y escuchás el audio tal y como fue diseñado por los creadores. El mouse de regalo. " }),
+    new Producto ({id: "4", titulo: "Joystick Inalambrico", imagen: "img/producto4.jpg" , precio: 150, descripcion:"Te permite jugar sin necesidad de que haya cables de por medio. Está pensado no solamente para controlar mejor tus videojuegos, sino también para aumentar su realismo y experiencia."}),
+    new Producto ({id: "5", titulo: "Monitor Gamer Samsung", imagen: "img/producto5.jpg" , precio: 300, descripcion:"Samsung está fielmente comprometida en brindar productos de calidad y que contribuyan a crear un mejor futuro para las personas. Buscamos siempre la conformidad de nuestros clientes."}),
+    new Producto ({id: "6", titulo: "Laptop Apple Gamer", imagen: "img/producto6.jpg" , precio: 1050, descripcion:"Con más espacio para que tu creatividad brille, la envolvente pantalla Retina de 16 pulgadas de la MacBook Pro te muestra blancos luminosos, negros más intensos y un brillo máximo de 500 nits (1)."}),
+
+];
+
+//CREANDO CARDS
+
+agregarProductos.forEach((item) => {
+    templateCard.querySelector('h3').textContent = item.titulo
+    templateCard.querySelector('span').textContent = item.precio
+    templateCard.querySelector('img').setAttribute("src", item.imagen)
+    templateCard.querySelector('p').textContent = item.descripcion
+    templateCard.querySelector('.agregar-carrito').dataset.id = item.id
+
+
+    const clone = templateCard.cloneNode(true)
+    fragment.appendChild(clone)
+})
+//SE PINTA LA CARD
+items.appendChild(fragment)
