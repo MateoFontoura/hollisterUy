@@ -26,6 +26,7 @@ h2{
 }
 h3{
     font-size:2.5rem;
+    color: #000;
 }
 td, th, label, .datos{
     color:#0A63FD;
@@ -260,15 +261,20 @@ header{
 }
 }
                                       /*FOOTER*/
-footer{
-    background-image: linear-gradient(to right top, #26133a, #231236, #201133, #1d102f, #1a0f2b);
+footer{             
+
     color:white;
     padding:3rem 0;
+    background-color: #000;
 }
 }
 .site-footer{
-border-top:1px solid #171C33;
+border-top:1px solid #000000;
  margin-top:3rem;
+}
+
+.negro{
+    background-color: black;
 }
 
                                                /*CONTACTO*/
